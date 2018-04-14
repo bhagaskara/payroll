@@ -33,46 +33,26 @@ public class Payroll {
      * @param args the command line arguments
      */
     public void main(String[] args) {
-        String sourceFileName = "E://test.jrxml";
-        System.out.println("Compiling Report Design ...");
-        ArrayList<DataBean> dataBeanList = getDataBeanList();
-        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(dataBeanList);
-        HashMap parameters = new HashMap();
-        
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
-            String resultFilePath = JasperCompileManager.compileReportToFile(sourceFileName);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(resultFilePath,parameters,dataSource);
-            JRPdfExporter export = new JRPdfExporter();
-            export.setExporterInput(new SimpleExporterInput(jasperPrint));
-            export.setExporterOutput(new SimpleOutputStreamExporterOutput(new File("E://export_test.pdf")));
-            export.exportReport();
-            
-            JasperViewer.viewReport(jasperPrint);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+//        String sourceFileName = "E://test.jrxml";
+//        System.out.println("Compiling Report Design ...");
+//        ArrayList<DataBean> dataBeanList = getDataBeanList();
+//        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(dataBeanList);
+//        HashMap parameters = new HashMap();
+//        
+//        try{
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
+//            String resultFilePath = JasperCompileManager.compileReportToFile(sourceFileName);
+//            JasperPrint jasperPrint = JasperFillManager.fillReport(resultFilePath,parameters,dataSource);
+//            JRPdfExporter export = new JRPdfExporter();
+//            export.setExporterInput(new SimpleExporterInput(jasperPrint));
+//            export.setExporterOutput(new SimpleOutputStreamExporterOutput(new File("E://export_test.pdf")));
+//            export.exportReport();
+//            
+//            JasperViewer.viewReport(jasperPrint);
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
         
     }
-    
-    
-    public static ArrayList<DataBean> getDataBeanList() {
-      ArrayList<DataBean> dataBeanList = new ArrayList<DataBean>();
-
-      dataBeanList.add(produce("Manisha", "India"));
-      dataBeanList.add(produce("Dennis Ritchie", "USA"));
-      dataBeanList.add(produce("V.Anand", "India"));
-      dataBeanList.add(produce("Shrinath", "California"));
-
-      return dataBeanList;
-    }
-    
-    private static DataBean produce(String name, String country) {
-      DataBean dataBean = new DataBean();
-      dataBean.setName(name);
-      dataBean.setCountry(country);
-      
-      return dataBean;
-   }
 }

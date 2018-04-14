@@ -144,6 +144,7 @@ public class FrmLogin extends javax.swing.JFrame {
             String password = Security.SHA256(String.valueOf(field_password.getPassword()));
             if(login(username,password)){
                 new FrmHome().setVisible(true);
+                dispose();
             }else{
                 JOptionPane.showMessageDialog(null, "Username Atau Password Salah", "Informasi", JOptionPane.WARNING_MESSAGE);
             }
@@ -154,7 +155,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private void settingFrame(){
         try {
             setLocationRelativeTo(null);
-            setTitle("Payroll - PT. Foechs Group");
+            setTitle("PT. Foechs Group");
             Image icon = ImageIO.read(getClass().getResource("/res/logo.jpg"));
             setIconImage(icon);
         } catch (IOException ex) {
