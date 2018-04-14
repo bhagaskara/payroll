@@ -1,10 +1,17 @@
 package payroll;
 
 import java.awt.Image;
+
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
+import payroll.controller.DatabaseController;
+import payroll.pojo.User;
+import payroll.security.Security;
 
 /**
  *
@@ -15,6 +22,7 @@ public class FrmLogin extends javax.swing.JFrame {
     public FrmLogin() {
         initComponents();
         settingFrame();
+        settingComponents();
     }
 
     @SuppressWarnings("unchecked")
@@ -88,29 +96,29 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(132, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(154, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(172, 172, 172))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -129,11 +137,21 @@ public class FrmLogin extends javax.swing.JFrame {
     
     
     private void settingComponents(){
+        btnLogin.addActionListener((event)->{
+            String username = field_username.getText().toString();
+            String password = Security.SHA256(String.valueOf(field_password.getPassword()));
+            if(login(username,password)){
+                new FrmHome().setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Username Atau Password Salah", "Informasi", JOptionPane.WARNING_MESSAGE);
+            }
+        });
         
     }
     
     private void settingFrame(){
         try {
+            setLocationRelativeTo(null);
             setTitle("Payroll - PT. Foechs Group");
             Image icon = ImageIO.read(getClass().getResource("/res/logo.jpg"));
             setIconImage(icon);
@@ -141,6 +159,25 @@ public class FrmLogin extends javax.swing.JFrame {
             Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    private boolean login(String username, String password){
+        try {
+            DatabaseController.connect();
+            
+            String sql = "SELECT username, jabatan FROM tbluser WHERE username=? AND password =?";
+            String[] values = {username, password};
+            ArrayList<User> data = (ArrayList<User>) DatabaseController.executeQuery(sql, values, DatabaseController.TABLE_USER);
+            
+            DatabaseController.close();
+            
+            return data.size()>0;
+        } catch (SQLException ex) {
+            Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return false;
+    }
+    
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

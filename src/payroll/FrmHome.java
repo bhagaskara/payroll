@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
  * @author Bhagaskara
  */
 public class FrmHome extends javax.swing.JFrame {
-
+    
     public FrmHome() {
         initComponents();
         settingFrame();
