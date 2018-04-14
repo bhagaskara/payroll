@@ -139,17 +139,17 @@ public class FrmLogin extends javax.swing.JFrame {
     
     
     private void settingComponents(){
-//        btnLogin.addActionListener((event)->{
-//            String username = field_username.getText().toString();
-//            String password = Security.SHA256(String.valueOf(field_password.getPassword()));
-//            if(login(username,password)){
-//                new FrmHome().setVisible(true);
-//                dispose();
-//            }else{
-//                JOptionPane.showMessageDialog(null, "Username Atau Password Salah", "Informasi", JOptionPane.WARNING_MESSAGE);
-//            }
-//        });
-//        
+        btnLogin.addActionListener((event)->{
+            String username = field_username.getText().toString();
+            String password = Security.SHA256(String.valueOf(field_password.getPassword()));
+            if(login(username,password)){
+                new FrmHome().setVisible(true);
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Username Atau Password Salah", "Informasi", JOptionPane.WARNING_MESSAGE);
+            }
+        });
+        
     }
     
     private void settingFrame(){
