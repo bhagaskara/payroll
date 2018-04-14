@@ -12,7 +12,7 @@ import javax.swing.SwingConstants;
  * @author Bhagaskara
  */
 public class FrmHome extends javax.swing.JFrame {
-
+    
     public FrmHome() {
         initComponents();
         settingFrame();
@@ -21,7 +21,8 @@ public class FrmHome extends javax.swing.JFrame {
     
     private void settingFrame(){
         try {
-            setTitle("Payroll - PT. Foechs Group");
+            setLocationRelativeTo(null);
+            setTitle("PT. Foechs Group");
             Image icon = ImageIO.read(getClass().getResource("/res/logo.jpg"));
             jButton1.setVerticalTextPosition(SwingConstants.BOTTOM);
             jButton1.setHorizontalTextPosition(SwingConstants.CENTER);
