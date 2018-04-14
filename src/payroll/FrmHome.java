@@ -63,7 +63,6 @@ public class FrmHome extends javax.swing.JFrame {
         jButton1.setFocusPainted(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setMargin(new java.awt.Insets(50, 0, 100, 0));
-        jButton1.setOpaque(true);
         jButton1.setRequestFocusEnabled(false);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
@@ -75,7 +74,6 @@ public class FrmHome extends javax.swing.JFrame {
         jButton2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jButton2.setBorderPainted(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setOpaque(true);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         jButton3.setBackground(new java.awt.Color(39, 174, 96));
@@ -86,7 +84,6 @@ public class FrmHome extends javax.swing.JFrame {
         jButton3.setBorderPainted(false);
         jButton3.setFocusPainted(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setOpaque(true);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
@@ -101,10 +98,9 @@ public class FrmHome extends javax.swing.JFrame {
         jLabel3.setText("13:07");
 
         jButton4.setBackground(new java.awt.Color(230, 126, 34));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/payroll/setting.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/setting.png"))); // NOI18N
         jButton4.setBorder(null);
         jButton4.setBorderPainted(false);
-        jButton4.setOpaque(true);
 
         jButton5.setBackground(new java.awt.Color(231, 76, 60));
         jButton5.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -114,7 +110,6 @@ public class FrmHome extends javax.swing.JFrame {
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton5.setOpaque(true);
         jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
