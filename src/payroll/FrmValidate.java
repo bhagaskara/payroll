@@ -8,6 +8,7 @@ package payroll;
 import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 import java.awt.Point;
+import javax.swing.JFrame;
 import javax.swing.UIManager;
 
 /**
@@ -21,8 +22,25 @@ public class FrmValidate extends javax.swing.JFrame {
      */
     public FrmValidate() {
         initComponents();
+        setupKeluar();
+        setupMasuk();
     }
     
+    void setupKeluar()
+    {
+        btnKeluar.addActionListener((event)->{
+            System.exit(0);
+        });
+    }
+    
+    void setupMasuk()
+    {
+        btnMasuk.addActionListener((event)->{
+            super.dispose();
+            super.setVisible(false);
+            new FrmHome().setVisible(true);
+        });
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,12 +55,12 @@ public class FrmValidate extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        tfId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        btnMasuk = new javax.swing.JButton();
+        btnKeluar = new javax.swing.JButton();
+        tfPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -79,12 +97,12 @@ public class FrmValidate extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(254, 254, 254));
         jLabel2.setText("PT. FOECHS GROUP");
 
-        jTextField2.setBackground(new java.awt.Color(254, 254, 254));
-        jTextField2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
-        jTextField2.setMargin(new java.awt.Insets(0, 5, 0, 0));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        tfId.setBackground(new java.awt.Color(254, 254, 254));
+        tfId.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        tfId.setMargin(new java.awt.Insets(0, 5, 0, 0));
+        tfId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                tfIdActionPerformed(evt);
             }
         });
 
@@ -94,25 +112,30 @@ public class FrmValidate extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(254, 254, 254));
         jLabel4.setText("Kata Sandi :");
 
-        jButton1.setBackground(new java.awt.Color(46, 204, 113));
-        jButton1.setFont(new java.awt.Font("Roboto", 1, 15)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(254, 254, 254));
-        jButton1.setText("Masuk");
-        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton1.setBorderPainted(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton1.setFocusPainted(false);
-        jButton1.setOpaque(true);
+        btnMasuk.setBackground(new java.awt.Color(46, 204, 113));
+        btnMasuk.setFont(new java.awt.Font("Roboto", 1, 15)); // NOI18N
+        btnMasuk.setForeground(new java.awt.Color(254, 254, 254));
+        btnMasuk.setText("Masuk");
+        btnMasuk.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnMasuk.setBorderPainted(false);
+        btnMasuk.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnMasuk.setFocusPainted(false);
+        btnMasuk.setOpaque(true);
 
-        jButton2.setBackground(new java.awt.Color(231, 76, 60));
-        jButton2.setFont(new java.awt.Font("Roboto", 1, 15)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(254, 254, 254));
-        jButton2.setText("Keluar");
-        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton2.setBorderPainted(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton2.setFocusPainted(false);
-        jButton2.setOpaque(true);
+        btnKeluar.setBackground(new java.awt.Color(231, 76, 60));
+        btnKeluar.setFont(new java.awt.Font("Roboto", 1, 15)); // NOI18N
+        btnKeluar.setForeground(new java.awt.Color(254, 254, 254));
+        btnKeluar.setText("Keluar");
+        btnKeluar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnKeluar.setBorderPainted(false);
+        btnKeluar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnKeluar.setFocusPainted(false);
+        btnKeluar.setOpaque(true);
+        btnKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKeluarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -121,12 +144,12 @@ public class FrmValidate extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPasswordField1)
+                    .addComponent(tfPassword)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel4)
@@ -140,7 +163,7 @@ public class FrmValidate extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addContainerGap(62, Short.MAX_VALUE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfId, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(53, 53, 53)))
         );
         jPanel2Layout.setVerticalGroup(
@@ -153,16 +176,16 @@ public class FrmValidate extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(47, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(149, 149, 149)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfId, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(195, Short.MAX_VALUE)))
         );
 
@@ -172,9 +195,13 @@ public class FrmValidate extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void tfIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_tfIdActionPerformed
+
+    private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKeluarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,15 +239,15 @@ public class FrmValidate extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnKeluar;
+    private javax.swing.JButton btnMasuk;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField tfId;
+    private javax.swing.JPasswordField tfPassword;
     // End of variables declaration//GEN-END:variables
 }

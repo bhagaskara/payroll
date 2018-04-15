@@ -29,19 +29,21 @@ public class FrmKaryawan extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tfName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
+        departement = new javax.swing.JComboBox<>();
+        btnShow = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        btnNew = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblData = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(52, 73, 94));
@@ -49,30 +51,30 @@ public class FrmKaryawan extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(254, 254, 254));
         jLabel2.setText("Nama Karyawan :");
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        tfName.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        tfName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                tfNameActionPerformed(evt);
             }
         });
 
         jLabel3.setForeground(new java.awt.Color(254, 254, 254));
         jLabel3.setText("Departemen :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Keuangan", "Pemasaran", "HRD", "IT" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        departement.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Keuangan", "Pemasaran", "HRD", "IT" }));
+        departement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                departementActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(46, 204, 113));
-        jButton2.setForeground(new java.awt.Color(254, 254, 254));
-        jButton2.setText("Tampilkan Data");
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setFocusPainted(false);
-        jButton2.setOpaque(true);
+        btnShow.setBackground(new java.awt.Color(46, 204, 113));
+        btnShow.setForeground(new java.awt.Color(254, 254, 254));
+        btnShow.setText("Tampilkan Data");
+        btnShow.setBorder(null);
+        btnShow.setBorderPainted(false);
+        btnShow.setFocusPainted(false);
+        btnShow.setOpaque(true);
 
         jLabel6.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(254, 254, 254));
@@ -85,13 +87,13 @@ public class FrmKaryawan extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1)
+                    .addComponent(btnShow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tfName)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(departement, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addGap(0, 122, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -104,13 +106,13 @@ public class FrmKaryawan extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(departement, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(115, 115, 115)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -126,6 +128,19 @@ public class FrmKaryawan extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(254, 254, 254));
         jLabel7.setText("PT FOECH GROUP");
 
+        btnNew.setBackground(new java.awt.Color(46, 204, 113));
+        btnNew.setForeground(new java.awt.Color(254, 254, 254));
+        btnNew.setText("Tambah Karyawan");
+        btnNew.setBorder(null);
+        btnNew.setBorderPainted(false);
+        btnNew.setFocusPainted(false);
+        btnNew.setOpaque(true);
+        btnNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -135,36 +150,47 @@ public class FrmKaryawan extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(144, 144, 144)
                 .addComponent(jLabel1)
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
+                .addComponent(btnNew, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel7))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addComponent(jLabel7)
+                    .addComponent(btnNew, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 821, 80));
 
         jPanel3.setBackground(new java.awt.Color(236, 240, 241));
 
-        jTable1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblData.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "12345", "Fredy", "Jln Merpati"},
-                {"2", "12346", "Setiawan", "Jln Perkutut"},
-                {"3", "12347", "Chandra", "Jln Merak"},
-                {"4", "12348", "Geovanno", "Jln Pipit"}
+                {"1", null, "12345", "Fredy", "Jln Merpati", null, null, null},
+                {"2", null, "12346", "Setiawan", "Jln Perkutut", null, null, null},
+                {"3", null, "12347", "Chandra", "Jln Merak", null, null, null},
+                {"4", null, "12348", "Geovanno", "Jln Pipit", null, null, null}
             },
             new String [] {
-                "No", "NIK", "Nama", "Alamat"
+                "No", "Foto", "NIK", "Nama", "Jenis Kelamin", "NPWP", "Jabatan", "Nomor HP"
             }
-        ));
-        jTable1.setRowHeight(35);
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblData.setRowHeight(35);
+        jScrollPane1.setViewportView(tblData);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -186,15 +212,20 @@ public class FrmKaryawan extends javax.swing.JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 520, 410));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void tfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_tfNameActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void departementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departementActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_departementActionPerformed
+
+    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,8 +263,9 @@ public class FrmKaryawan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnNew;
+    private javax.swing.JButton btnShow;
+    private javax.swing.JComboBox<String> departement;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -243,7 +275,7 @@ public class FrmKaryawan extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tblData;
+    private javax.swing.JTextField tfName;
     // End of variables declaration//GEN-END:variables
 }

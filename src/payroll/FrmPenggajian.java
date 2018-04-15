@@ -6,6 +6,7 @@
 package payroll;
 
 import java.awt.Color;
+import javax.swing.JFrame;
 
 
 /**
@@ -17,9 +18,17 @@ public class FrmPenggajian extends javax.swing.JFrame {
     /**
      * Creates new form FrmPenggajian
      */
+    JFrame frame;
+    
     public FrmPenggajian() {
         initComponents();
     }
+    
+    public FrmPenggajian(JFrame frame)
+    {
+        this.frame = frame;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
